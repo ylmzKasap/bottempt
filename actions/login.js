@@ -1,7 +1,12 @@
-module.exports = async function log_in(page, serverToLogin, country) {
+async function log_in(page, serverToLogin, country) {
     await page.goto(`https://www.travian.com/${country}`, {
     waitUntil: 'networkidle2',
   });
+
+  const cookieButton = await page.$('#cmpbntyestxt');
+  if (cookieButton) {
+      cookieButton.click();
+  }
 
   await page
     .waitForSelector("a[href='#login']")
@@ -33,3 +38,16 @@ module.exports = async function log_in(page, serverToLogin, country) {
 
     return;
 }
+
+async function get_url(page) {
+    const url = await page
+        .waitForSelector('a.stockBarButton')
+        .then(async () => {
+            const mainUrl = page.url();
+            const urlRegex = /.*travian.com/
+            return mainUrl.match(urlRegex)[0];
+        });
+    return url;
+}
+
+module.exports = {log_in, get_url}
