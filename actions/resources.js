@@ -45,7 +45,7 @@ async function get_building_level(page, building_id) {
 
 async function upgrade_building(page, building_id) {
     const element = await page.$(`a.buildingSlot${building_id}`);
-    element.click();
+    await element.click();
 
     await page
       .waitForSelector('.upgradeButtonsContainer > div > button')

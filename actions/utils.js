@@ -42,6 +42,11 @@ function cartProd(paramArray) {
   return addTo([], Array.prototype.slice.call(arguments));
 }
 
+function blockingWait(seconds) {
+  var waitTill = new Date(new Date().getTime() + seconds * 1000);
+  while(waitTill > new Date()){}
+}
+
 module.exports = {
-    arraysEqual, cartProd
+    arraysEqual, cartProd, blockingWait
 }

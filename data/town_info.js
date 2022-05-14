@@ -15,9 +15,28 @@ const layoutInfo = {
 }
 
 const buildings = {
-    
+    'rally_point': 'g16',
+    'stable': 'g20',
+    'barracks': 'g19',
+    'granary': 'g11',
+    'academy': 'g22',
+    'warehouse': 'g10',
+    'embassy': 'g18',
+    'cranny': 'g23',
+    'marketplace': 'g17',
+    'main_building': 'g15',
+    'smithy': 'g13',
+    'residence': 'g25',
+    'grain_mill': 'g8',
+    'sawmill': 'g5',
+    'brickyard': 'g6',
+    'iron_foundry': 'g7',
+    "hero's_mansion": 'g37',
+    "workshop": "g21",
+    "hospital": "g46",
+    "stonemason": "g34"
 }
 
 module.exports = {
-    layouts
+    layouts, buildings
 }
