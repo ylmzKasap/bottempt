@@ -3,8 +3,8 @@ const { blockingWait } = require('./utils');
 
 async function tokmak_it(page) {
     async function create_tokmak(page) {
-      const tokmakInput = await page.$('div.troop1 > div.details > div.cta > input');
-      await page.evaluate(() => document.querySelector('div.troop1 > div.details > div.cta > input').value = "")
+      const tokmakInput = await page.$('input[name="t1"]');
+      await page.evaluate(() => document.querySelector('input[name="t1"]').value = "")
       await tokmakInput.type('10');
       console.log('Created 10 tokmak.')
       page.keyboard.press('Enter');
